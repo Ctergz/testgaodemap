@@ -1,2 +1,8 @@
 # testgaodemap
 TextureMapView问题复现
+
+注意：需要安装jdk 11进行编译
+
+问题描述：
+使用的jetpack的navigation管理fragment，在其中一个fragment中使用TextureMapView来显示地图（因为用mapview在fragment切换时会有黑屏）。
+在地图fragment中通过onCreate中调用setHasOptionsMenu(true)注册actionbar的菜单监听，在地图fragment中的onOptionsItemSelected方法中收到actionbar返回按钮点击事件后调用requireActivity().onBackPressed()来回退页面，这时地图fragment会先闪烁几下才退出
